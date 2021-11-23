@@ -1,4 +1,6 @@
 # djangonews-site
-# First 
-    -Create  virtual environment
-    -Install requirements 
+ 
+-First,create  virtual environment
+    python -m venv name
+    
+-Install requirements 
