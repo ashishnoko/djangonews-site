@@ -1,8 +1,14 @@
 from django.shortcuts import render,HttpResponse
+from .models import News 
+
+
 
 # Create your views here.
 def index(request):
-    return render(request,'index.html')
+    content={
+        'newsData':News.objects.all()
+    }
+    return render(request,'index.html',content)
 
 def about(request):
     return render(request,'about.html')
