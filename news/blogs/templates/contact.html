@@ -1,7 +1,49 @@
 {% extends 'master.html' %}
 
 {% block content %}
-Lorem ipsum dolor sit amet consectetur adipisicing elit.
- Nobis inventore molestias amet saepe tempora id? Sequi vel id unde mollitia, perspiciatis voluptates. Esse ullam repudiandae soluta maiores quisquam iusto harum?
+
+<section class="section first-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"> 
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-success">
+                            {{ message }}
+                        <a href="#" class="del-msg">&times;</a>
+                        </div>
+                    {% endfor %}   
+                {% endif %} 
+            </div>      
+            <div class="col-md-12">       
+                    <form method="post">
+                        {% csrf_token %}
+                        <form action ="{% url 'contact' %}" class="form-wrapper" method="post">
+                            {% csrf_token %}
+                            
+                            <label for="name"> Name:</label><br>
+                            
+                            <input type="text" name = "name" class="form-control"  required>
+                            <label for="email">Email:</label><br>
+                            <input type="text" id ="email" name = "email" class="form-control" required>
+                            <label for="subject">Subject:</label><br>
+                            <input type="text" name = "subject" class="form-control"  required>
+                            <label for="message">Message:</label><br>
+                            <textarea name = "message" class="form-control" required></textarea> <br>
+                            <button type="submit" class="btn btn-primary">Send </button>
+                            
+                        </form>
+                    
+                    
+                        
+                            
+                        
+                    </form>
+                    
+            </div>
+        
+        </div>
+    </div>
+</section>
 
 {% endblock %}

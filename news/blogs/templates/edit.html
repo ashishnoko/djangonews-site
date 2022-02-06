@@ -1,0 +1,56 @@
+{% extends 'master.html' %}
+
+{% block content %}
+<h1>Crud Page</h1>
+
+<div class="container ">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Update Crud Page</h1>
+            <hr>
+
+        </div>
+        <div class="col-md-12">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div>
+                {% endfor %}   
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">    
+                <form method="post">
+                    {% csrf_token %}
+                    <form action ="" class="form-wrapper" method="post">
+                        {% csrf_token %}
+                        
+                        <label for="fname"> Name:</label><br>
+                        
+                        <input type="text" name = "name" class="form-control" value={{ crudData.name }} >
+                        <label for="fname">Address:</label><br>
+                        <input type="text" name = "address" class="form-control" value={{ crudData.address }} >
+                        <label for="fname">Phone:</label><br>
+                        <input type="number" name = "number" class="form-control" value={{ crudData.number }}>
+                        <label for="fname">Message:</label><br>
+                        <input type ="text" name = "message" class="form-control" value={{ crudData.message }}> <br>
+                        <button type="submit" class="btn btn-primary">Submit </button>
+                    </form>
+                   
+                
+                       
+                        
+                    
+                </form>
+                
+        </div>
+       
+    </div>
+</div>
+
+
+{% endblock %}

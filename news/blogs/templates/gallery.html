@@ -1,0 +1,87 @@
+{% extends 'master.html' %}
+
+{% block content %}
+
+
+<div class="container ">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h1>CRUD Page</h1>
+            <hr>
+
+        </div>
+        <div class="col-md-12">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div>
+                {% endfor %}   
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">    
+                <form method="post">
+                    {% csrf_token %}
+                    <form action ="" class="form-wrapper" method="post">
+                        {% csrf_token %}
+                        
+                        <label for="fname"> Name:</label><br>
+                        
+                        <input type="text" name = "name" class="form-control" placeholder="Your name" required>
+                       
+                        <label for="files">Selext Images</label>
+                        <input type="file" id="files" name="files" multiple><br><br>
+                        <input type="submit">
+                    </form>
+                   
+                
+                       
+                        
+                    
+                </form>
+                
+        </div>
+        <div class="col-md-8">
+            
+            
+            
+            
+            <table class="table table-hover" >
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Files</th>
+                        
+                    </tr> 
+                </thead>
+                <tbody>
+                    {% for con in contentData%}  
+
+                    
+                   
+                        <tr>
+                            <td>{{ con.name }}     </td> 
+                            <td>{{ con.files }}  </td>
+                            
+                            <td>
+                                <a href ="edit/{{ con.id }}" class="">Edit</a>
+                                <a href ="delete/{{ con.id }}" class="">Delete</a> 
+                            </td>    
+                        
+                        
+                        </tr>
+                    {% endfor %}
+                    
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

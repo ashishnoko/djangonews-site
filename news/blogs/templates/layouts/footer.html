@@ -66,9 +66,7 @@
     </div><!-- end container -->
 </footer><!-- end footer -->
 
-<div class="dmtop">Scroll to Top</div>
 
-</div><!-- end wrapper -->
 
 
 {% load static %}
@@ -78,6 +76,26 @@
     <script src="{% static 'js/tether.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/custom.js' %}"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0" nonce="OGXGjap3"></script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0" nonce="RjUTzrZR"></script>
+    <script>
+        $(document).ready(function() {
+            // messages timeout for 10 sec 
+            setTimeout(function() {
+                $('.alert').hide('slow');
+            }, 1000); // <-- time in milliseconds, 1000 =  1 sec
+    
+            // delete message
+            $('.del-msg').live('click',function(){
+                $('.del-msg').parent().attr('style', 'display:none;');
+            })
+        });
+    </script>
+
+
+
+
 
 </body>
 </html>
